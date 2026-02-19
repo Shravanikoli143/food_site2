@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: white;
+}
+
+header{
+    background: black;
+    padding: 15px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.container{
+    width: 400px;
+    margin: 40px auto;
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+input, select{
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+.pay-btn{
+    width: 100%;
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.pay-btn:hover{
+    background: darkgreen;
+}
+
+.success{
+    text-align: center;
+    color: green;
+    font-weight: bold;
+}
+
+.feedback{
+    text-align:center;
+    margin:15px 0;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>💳 Payment Page</header>
+
+<div class="container">
+
+<h3>Total Amount: <span id="finalAmount"></span></h3>
+
+<form onsubmit="processPayment(event)">
+    <input type="text" placeholder="Full Name" required>
+    <input type="text" placeholder="Mobile Number" required>
+
+    <select required>
+        <option value="">Select Payment Method</option>
+        <option>UPI</option>
+        <option>Debit Card</option>
+        <option>Credit Card</option>
+        <option>Cash on Delivery</option>
+    </select>
+
+    <button type="submit" class="pay-btn">Pay Now</button>
+</form>
+
+<div id="message"></div>
+
+</div>
+
+<div class="feedback">
+    <a href="feedback.html"> Please fill the Feedback Form</a>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
+cart.forEach(item => {
+    total += Number(item.price);
+});
+
+document.getElementById("finalAmount").innerHTML = "₹" + total;
+
+function processPayment(event){
+    event.preventDefault();
+
+    document.getElementById("message").innerHTML =
+        "<p class='success'>Payment Successful! 🎉</p>";
+
+    localStorage.removeItem("cart");
+
+    setTimeout(()=>{
+        window.location.href = "index.html";
+    },2000);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Feedback</h1>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+</header>
+
+<form>
+<div class="container">
+
+<section class="feedback-section">
+
+        <h2>🍕 Customer Foodie Feedback</h2>
+        <p>We value your taste and feedback!</p>
+
+        <form class="feedback-form" onsubmit="showPopup(event)">
+
+            <label>Your Name:</label>
+            <input type="text" placeholder="Enter your name" required><br><br>
+
+            <label>Your Email:</label>
+            <input type="email" placeholder="Enter your email" required><br><br>
+
+            <label>Food / Drink Item You Ordered:</label>
+            <input type="text" placeholder="e.g. 🍕 Pizza, 🍔 Burger, 🥤 Mojito"><br><br>
+
+            <label>Rate Your Experience:</label>
+            <select required><br><br>
+                <option value="">Choose Rating</option>
+                <option>⭐</option>
+                <option>⭐⭐</option>
+                <option>⭐⭐⭐</option>
+                <option>⭐⭐⭐⭐</option>
+                <option>⭐⭐⭐⭐⭐</option>
+            </select><br><br>
+
+            <label>Your Feedback:</label>
+            <textarea rows="4" placeholder="Write your review..."></textarea><br><br>
+
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+
+        <a href="index.html" class="home-btn">⬅ Back to Home</a>
+   
+</form>
+</div>
+
+</body>
+</html>
